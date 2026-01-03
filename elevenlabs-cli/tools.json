@@ -1,0 +1,49 @@
+{
+  "tools": [
+    {
+      "type": "client",
+      "config": "tool_configs/getContext.json",
+      "id": "tool_8401kdt8fgzzegkvysje19fybzwx"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/getContextBriefing.json",
+      "id": "tool_1201kdt8fh9ce7ps82tcwvbrs5wk"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/seekToTime.json",
+      "id": "tool_6101kdt8fhhzef69ewxk57y3jjmm"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/seekToCheckpoint.json",
+      "id": "tool_3001kdtah744e5abgzw9ve2gt3z0"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/openTab.json",
+      "id": "tool_1201kdt8fht6ehqb1b1ygs2hvsh8"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/pauseVideo-1.json",
+      "id": "tool_7201ke0p36hcedta13c1cdmx05wn"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/resumeVideo-1.json",
+      "id": "tool_0601ke0p36tyfryrhg7spxer70pv"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/replaySection.json",
+      "id": "tool_0201ke0p373cf4srw7680kgf1ebp"
+    },
+    {
+      "type": "client",
+      "config": "tool_configs/answerCheckpoint.json",
+      "id": "tool_9501kdt9wsznfryvm9s8qddz8sct"
+    }
+  ]
+}

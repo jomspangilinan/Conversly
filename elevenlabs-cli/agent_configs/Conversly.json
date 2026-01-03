@@ -1,0 +1,273 @@
+{
+  "name": "Conversly",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "elevenlabs",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": []
+    },
+    "turn": {
+      "turn_timeout": -1,
+      "silence_end_call_timeout": -1,
+      "soft_timeout_config": {
+        "timeout_seconds": -1,
+        "message": "Hhmmmm...yeah give me a second..."
+      },
+      "mode": "turn",
+      "turn_eagerness": "normal"
+    },
+    "tts": {
+      "model_id": "eleven_turbo_v2",
+      "voice_id": "qyFhaJEAwHR0eYLCmlUT",
+      "supported_voices": [],
+      "suggested_audio_tags": [],
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8,
+      "text_normalisation_type": "system_prompt",
+      "pronunciation_dictionary_locators": []
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 600,
+      "client_events": [
+        "audio",
+        "interruption",
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction"
+      ],
+      "monitoring_enabled": false,
+      "monitoring_events": [
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction"
+      ]
+    },
+    "language_presets": {},
+    "vad": {
+      "background_voice_detection": false
+    },
+    "agent": {
+      "first_message": "Hey! I'm your tutor for this video. I'll help you master the material by checking in at key moments. Ready to get started?",
+      "language": "en",
+      "hinglish_mode": false,
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+      },
+      "disable_first_message_interruptions": false,
+      "prompt": {
+        "prompt": "# Voice Tutor Agent — System Prompt (paste into ElevenLabs Agent)\n\n## Role\nYou are **Conversly**, an AI tutor embedded in a video learning app. The student is watching a video; your job is to explain the current section, answer questions, and guide rewatching the right moments.\n\n## Non-interrupt rule\n- Do **not** ask the user to respond while they are silently watching the video. Only speak when the user speaks/asks, or when you are answering their question.\n\n## Fast, tool-first rules\n- **Call `getContext` before answering** anything that depends on the video (\"what did they mean\", \"summarize this part\", \"I’m confused\", etc.).\n- Use the returned JSON as the source of truth. Do not invent timestamps or quotes.\n- Keep responses short: 2–5 sentences + one concrete next step.\n- Prefer *fast* client tools (getContext, seekToTime, seekToCheckpoint, openTab, pauseVideo, resumeVideo, answerCheckpoint). Avoid slow server-side summarization unless explicitly requested.\n\n## Tool usage\n- `getContext`: Always first when video context matters.\n- `seekToTime`: When recommending rewatching or when the user asks to go back/replay.\n- `seekToCheckpoint`: When the user says \"open the checkpoint\" / \"take the quiz\" or when you want to jump them to a specific checkpoint and show the overlay.\n- `openTab`: When you want the user to look at Transcript/Outline/Review/Interactions/Logs.\n- `pauseVideo` / `resumeVideo`: Pause if you want them to stop playback while you explain; resume when they say continue (resume auto-minimizes the tutor UI in the app).\n- `answerCheckpoint`: If a checkpoint overlay is open and the student answers by voice. Prefer `selectedAnswer` (exact option text) or `textAnswer` (semantic/paraphrase). If you must answer with a number, use `selectedNumber` (1-based: 1 = first option).\n\n## Tool specifications (must match the app)\n\n### getContext\nParameters (optional):\n```json\n{\n  \"detail\": \"brief\" | \"normal\" | \"detailed\",\n  \"maxTranscriptChars\": 1200\n}\n```\nReturn: a JSON string containing fields like `currentTime`, `transcriptSnippet`, `nearbyConcepts`, `nearbyCheckpoints`, `interactionSummary`, `recentMessages`.\n\n### seekToTime\n```json\n{ \"seconds\": 123 }\n```\n\n### seekToCheckpoint\n```json\n{ \"timestamp\": 123, \"type\": \"quickQuiz\", \"prompt\": \"...\" }\n```\n\n### openTab\n```json\n{ \"tab\": \"outline\" | \"transcript\" | \"review\" | \"interactions\" | \"logs\" }\n```\n\n### pauseVideo\nNo parameters.\n\n### resumeVideo\nNo parameters.\n\n### answerCheckpoint\n```json\n{ \"selectedAnswer\": \"Some option text\" }\n```\nOR (semantic)\n```json\n{ \"textAnswer\": \"the many refers to multiple channels like mobile and web\" }\n```\nOR (1-based number)\n```json\n{ \"selectedNumber\": 1 }\n```\n\n## If the user is vague\nCall `getContext`, explain the most relevant nearby core concept in 2–4 sentences, then ask **one** targeted question to confirm what they’re stuck on.\n",
+        "llm": "gemini-2.5-flash",
+        "thinking_budget": 0,
+        "temperature": 0,
+        "max_tokens": -1,
+        "tool_ids": [
+          "tool_8401kdt8fgzzegkvysje19fybzwx",
+          "tool_1201kdt8fh9ce7ps82tcwvbrs5wk",
+          "tool_6101kdt8fhhzef69ewxk57y3jjmm",
+          "tool_3001kdtah744e5abgzw9ve2gt3z0",
+          "tool_1201kdt8fht6ehqb1b1ygs2hvsh8",
+          "tool_7201ke0p36hcedta13c1cdmx05wn",
+          "tool_0601ke0p36tyfryrhg7spxer70pv",
+          "tool_0201ke0p373cf4srw7680kgf1ebp",
+          "tool_9501kdt9wsznfryvm9s8qddz8sct"
+        ],
+        "built_in_tools": {},
+        "mcp_server_ids": [],
+        "native_mcp_server_ids": [],
+        "knowledge_base": [],
+        "ignore_default_personality": false,
+        "rag": {
+          "enabled": false,
+          "embedding_model": "e5_mistral_7b_instruct",
+          "max_vector_distance": 0.6,
+          "max_documents_length": 50000,
+          "max_retrieved_rag_chunks_count": 20,
+          "query_rewrite_prompt_override": null
+        },
+        "backup_llm_config": {
+          "preference": "default"
+        },
+        "tools": []
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": []
+    },
+    "widget": {
+      "variant": "full",
+      "placement": "bottom-right",
+      "expandable": "never",
+      "avatar": {
+        "type": "orb",
+        "color1": "#2792dc",
+        "color2": "#9ce6e6"
+      },
+      "feedback_mode": "during",
+      "end_feedback": {
+        "type": "rating"
+      },
+      "bg_color": "#ffffff",
+      "text_color": "#000000",
+      "btn_color": "#000000",
+      "btn_text_color": "#ffffff",
+      "border_color": "#e1e1e1",
+      "focus_color": "#000000",
+      "shareable_page_show_terms": true,
+      "terms_text": "#### Terms and conditions\n\nBy clicking \"Agree,\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.",
+      "terms_html": "<h4>Terms and conditions</h4>\n<p>By clicking &quot;Agree,&quot; and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.</p>\n",
+      "show_avatar_when_collapsed": false,
+      "disable_banner": false,
+      "markdown_link_allowed_hosts": [],
+      "markdown_link_include_www": true,
+      "markdown_link_allow_http": true,
+      "mic_muting_enabled": false,
+      "transcript_enabled": false,
+      "text_input_enabled": true,
+      "conversation_mode_toggle_enabled": false,
+      "default_expanded": false,
+      "always_expanded": false,
+      "text_contents": {},
+      "styles": {},
+      "language_selector": false,
+      "supports_text_only": true,
+      "language_presets": {}
+    },
+    "data_collection": {},
+    "overrides": {
+      "conversation_config_override": {
+        "turn": {
+          "soft_timeout_config": {
+            "message": false
+          }
+        },
+        "tts": {
+          "voice_id": false,
+          "stability": false,
+          "speed": false,
+          "similarity_boost": false
+        },
+        "conversation": {
+          "text_only": true
+        },
+        "agent": {
+          "first_message": false,
+          "language": false,
+          "prompt": {
+            "prompt": false,
+            "llm": false,
+            "native_mcp_server_ids": false
+          }
+        }
+      },
+      "custom_llm_extra_body": false,
+      "enable_conversation_initiation_client_data_from_webhook": false
+    },
+    "workspace_overrides": {
+      "webhooks": {
+        "events": ["transcript"],
+        "send_audio": false
+      }
+    },
+    "testing": {
+      "attached_tests": [],
+      "referenced_tests_ids": []
+    },
+    "archived": false,
+    "guardrails": {
+      "version": "1",
+      "moderation": {
+        "config": {
+          "sexual": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "violence": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "violence_graphic": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "harassment": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "harassment_threatening": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "hate": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "hate_threatening": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm_instructions": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm_intent": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "sexual_minors": {
+            "is_enabled": false,
+            "threshold": 0.3
+          }
+        }
+      }
+    },
+    "auth": {
+      "enable_auth": false,
+      "allowlist": []
+    },
+    "call_limits": {
+      "agent_concurrency_limit": -1,
+      "daily_limit": 100000,
+      "bursting_enabled": true
+    },
+    "ban": null,
+    "privacy": {
+      "record_voice": true,
+      "retention_days": -1,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false,
+      "apply_to_existing_conversations": false,
+      "zero_retention_mode": false
+    },
+    "safety": {
+      "is_blocked_ivc": false,
+      "is_blocked_non_ivc": false,
+      "ignore_safety_evaluation": false
+    }
+  },
+  "tags": [],
+  "workflow": {
+    "edges": {},
+    "nodes": {
+      "start_node": {
+        "type": "start",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": []
+      }
+    },
+    "prevent_subagent_loops": false
+  }
+}

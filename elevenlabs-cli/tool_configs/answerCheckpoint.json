@@ -1,0 +1,43 @@
+{
+    "type": "client",
+    "name": "answerCheckpoint",
+    "description": "Submit an answer for the currently-open checkpoint quiz overlay.",
+    "response_timeout_secs": 15,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "Submit a checkpoint answer. Prefer selectedAnswer (exact option string) or textAnswer (semantic/paraphrase). If you must answer with a number, use selectedNumber (1-based: 1 = first option). For free-text checkpoints: provide textAnswer.",
+        "properties": {
+            "selected_number": {
+                "type": "number",
+                "description": "(Legacy alias) Chosen option number (1-based).",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            },
+            "selected_answer": {
+                "type": "string",
+                "description": "(Legacy) Exact answer option text.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            },
+            "text_answer": {
+                "type": "string",
+                "description": "(Legacy) Free-text/semantic answer.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

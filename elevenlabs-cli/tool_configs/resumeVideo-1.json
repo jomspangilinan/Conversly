@@ -1,0 +1,21 @@
+{
+    "type": "client",
+    "name": "resumeVideo",
+    "description": "Resumes video playback after it was paused. Use when the student is ready to continue watching.",
+    "response_timeout_secs": 20,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "",
+        "properties": {}
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

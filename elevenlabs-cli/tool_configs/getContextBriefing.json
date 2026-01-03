@@ -1,0 +1,29 @@
+{
+    "type": "client",
+    "name": "getContextBriefing",
+    "description": "Get a short textual briefing of the current lesson/video context (server-side summary). Use only if necessary; prefer getContext for speed.",
+    "response_timeout_secs": 45,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "Options for generating a briefing.",
+        "properties": {
+            "timeout_ms": {
+                "type": "number",
+                "description": "Maximum time to spend generating the briefing (milliseconds).",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": true,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

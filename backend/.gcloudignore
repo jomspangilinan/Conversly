@@ -1,0 +1,13 @@
+# .gcloudignore
+.git
+.gitignore
+node_modules/
+dist/
+output/
+test-*.mp4
+test-*.mp3
+*.log
+.env
+.env.*
+service-account.json
+gemini-*.json

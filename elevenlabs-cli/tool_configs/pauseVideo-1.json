@@ -1,0 +1,21 @@
+{
+    "type": "client",
+    "name": "pauseVideo",
+    "description": "Pauses the video playback. Use when you want the student to stop watching while you explain something important.",
+    "response_timeout_secs": 20,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "",
+        "properties": {}
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

@@ -1,0 +1,51 @@
+{
+    "type": "client",
+    "name": "seekToCheckpoint",
+    "description": "Seek to a checkpoint and open the checkpoint overlay at that moment.",
+    "response_timeout_secs": 15,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [
+            "timestamp"
+        ],
+        "description": "Checkpoint target. Timestamp is required; type/prompt help disambiguate.",
+        "properties": {
+            "timestamp": {
+                "type": "number",
+                "description": "Checkpoint timestamp in seconds (from getContext.nearbyCheckpoints).",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            },
+            "type": {
+                "type": "string",
+                "description": "Optional checkpoint type to disambiguate.",
+                "enum": [
+                    "quickQuiz",
+                    "reflection",
+                    "prediction",
+                    "application"
+                ],
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            },
+            "prompt": {
+                "type": "string",
+                "description": "Optional checkpoint prompt text to disambiguate.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

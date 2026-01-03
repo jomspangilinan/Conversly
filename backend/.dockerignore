@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+.env.example
+*.log
+*.mjs
+test-*.mp4
+test-*.mp3
+test-*.sh
+setup-gcp.sh
+output/
+gemini-*.json
+service-account.json

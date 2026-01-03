@@ -1,0 +1,36 @@
+{
+    "type": "client",
+    "name": "getContext",
+    "description": "Get a JSON snapshot of the current student/video context (timestamp, transcript snippet, nearby concepts/checkpoints, interaction summary).",
+    "response_timeout_secs": 30,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "Options for the context snapshot.",
+        "properties": {
+            "detail": {
+                "type": "string",
+                "description": "Requested detail level: brief | normal | detailed.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            },
+            "max_transcript_chars": {
+                "type": "number",
+                "description": "Max transcript characters to include in the snapshot.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": true,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

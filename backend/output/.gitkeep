@@ -1,0 +1,7 @@
+# Output folder for Gemini response logs
+# Each video analysis creates a JSON file with:
+# - Video ID and metadata
+# - Complete prompt used
+# - Raw Gemini response
+# - Parsed analysis result
+# - Timestamp and AI config version

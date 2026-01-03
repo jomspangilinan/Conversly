@@ -1,0 +1,29 @@
+{
+    "type": "client",
+    "name": "replaySection",
+    "description": "Replays the last 10-30 seconds of video. Use when student says 'replay that', 'go back', or 'I missed that'.",
+    "response_timeout_secs": 20,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [],
+        "description": "",
+        "properties": {
+            "seconds": {
+                "type": "number",
+                "description": "How many seconds to rewind (default 10)",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}

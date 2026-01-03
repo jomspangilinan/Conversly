@@ -1,0 +1,30 @@
+{
+  "name": "conversly",
+  "version": "1.0.0",
+  "description": "Voice Learning Platform - ElevenLabs x Google Cloud Hackathon",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend & npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "npm run build --workspaces",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "install:all": "npm install",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules"
+  },
+  "keywords": [
+    "voice",
+    "learning",
+    "ai",
+    "elevenlabs",
+    "gemini",
+    "education"
+  ],
+  "author": "",
+  "license": "ISC"
+}

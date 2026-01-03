@@ -1,0 +1,70 @@
+   {/* AI Chat Section - Ask Questions About the Video */}
+                <div className="mb-8">
+                    <div className="flex items-center justify-between mb-6">
+                        <h2 className="text-3xl font-bold flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-accent">
+                                <path fillRule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clipRule="evenodd" />
+                            </svg>
+                            Ask About This Video
+                        </h2>
+                        <div className="badge badge-lg badge-accent badge-outline">
+                            AI-Powered
+                        </div>
+                    </div>
+
+                    <div className="card bg-gradient-to-br from-base-200 to-base-300 shadow-xl">
+                        <div className="card-body">
+                            {/* Chat Messages */}
+                            <div className="space-y-4 mb-6 max-h-96 overflow-y-auto p-4 bg-base-100 rounded-xl">
+                                {/* Example/Placeholder Messages */}
+                                <div className="chat chat-start">
+                                    <div className="chat-bubble chat-bubble-primary">
+                                        What are the main concepts covered in this video?
+                                    </div>
+                                </div>
+                                <div className="chat chat-end">
+                                    <div className="chat-bubble bg-base-300 text-base-content">
+                                        Based on my analysis, this video covers {video.concepts?.length || 0} key concepts. Would you like me to explain any specific concept in more detail?
+                                    </div>
+                                </div>
+                                
+                                {/* Empty State for New Videos */}
+                                <div className="text-center py-8">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16 mx-auto text-accent/40 mb-3">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                    </svg>
+                                    <p className="text-base-content/60 mb-2">Ask me anything about this video!</p>
+                                    <p className="text-sm text-base-content/40">Try asking about specific concepts, visual elements, or key moments</p>
+                                </div>
+                            </div>
+
+                            {/* Input Area */}
+                            <div className="form-control">
+                                <div className="join w-full">
+                                    <input 
+                                        type="text" 
+                                        placeholder="Ask a question about this video..." 
+                                        className="input input-bordered input-lg join-item flex-1"
+                                        disabled
+                                    />
+                                    <button className="btn btn-accent btn-lg join-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                                        </svg>
+                                        Send
+                                    </button>
+                                </div>
+                                <label className="label">
+                                    <span className="label-text-alt text-base-content/50">💡 Tip: Ask specific questions for better answers</span>
+                                    <span className="label-text-alt text-warning">Coming Soon</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+also we neeed to add like a checkpoint, before going to another key concept,
+we should have like a do we want to ask a question Here
+or like where to possibly position a checkpoint
+where ai will begin a conversation, but there's a notification 
+a subtle one that if we want? I want gemini to do that as a secret sauce

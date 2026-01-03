@@ -1,0 +1,31 @@
+{
+    "type": "client",
+    "name": "seekToTime",
+    "description": "Seek the video player to a specific timestamp (in seconds).",
+    "response_timeout_secs": 15,
+    "disable_interruptions": false,
+    "force_pre_tool_speech": false,
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "parameters": {
+        "type": "object",
+        "required": [
+            "seconds"
+        ],
+        "description": "Seek request.",
+        "properties": {
+            "seconds": {
+                "type": "number",
+                "description": "Target time in seconds from start of the video.",
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+            }
+        }
+    },
+    "expects_response": false,
+    "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate"
+}
